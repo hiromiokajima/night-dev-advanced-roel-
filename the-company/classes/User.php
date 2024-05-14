@@ -151,7 +151,7 @@
         $sql = "DELETE FROM users WHERE id = $id";
         if($this->conn->query($sql)) {
             $this->logout();
-            #Call the logout() to remove the session set and redirect to the index page.
+           
         } else {
             die('Error in deleting the account: ' . $this->conn->error);
         }
