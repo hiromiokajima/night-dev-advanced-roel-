@@ -144,12 +144,14 @@
 
     }
     public function delete() {
+        # delete( allows us to delete the record of the user permanently)
         session_start();
         $id = $_SESSION['id'];#Get the ID of the user who is currently logged in
 
         $sql = "DELETE FROM users WHERE id = $id";
         if($this->conn->query($sql)) {
             $this->logout();
+            #Call the logout() to remove the session set and redirect to the index page.
         } else {
             die('Error in deleting the account: ' . $this->conn->error);
         }
